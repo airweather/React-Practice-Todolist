@@ -4,22 +4,25 @@ import {useState} from 'react';
 
 export default function Todolist() {
   const [todos, setTodos] = useState([]);
-  const [text, setText] = useState('');
 
+  let text = '';
   const complete = () => {
-    alert('완료했나요?');
+    
   };
   
   const push = () => {
+    if(text ==='') return;
     setTodos([...todos, text])
   };
-  
+
   const textInput = (e) => {
-    setText(e.target.value);
+    text = e.target.value;
   };
+
+  console.log('todos: ', todos, 'text: ', text);
   
-  return (
-    <>
+  const TodoInput = () => {
+    return (
       <Grid container sx={{m:3}}>
         <Grid item xs>
           <FormControl sx={{ width: '50ch'}}>
@@ -35,10 +38,14 @@ export default function Todolist() {
           <Button variant="contained" sx={{m:1 ,mr:5}} onClick={push}>입력</Button>
         </Grid>
       </Grid>
-      <hr/>
+    )
+  }
+
+  const InputList = () => {
+    return (
       <div>
-        {todos.map((todo) => 
-          <Grid container sx={{m:3}}>
+        {todos.map((todo, i) => 
+          <Grid container sx={{m:3}} key={i}>
             <Grid item xs>
               <Typography variant="h5" component="h5" sx={{m:1}}>{todo}</Typography>
             </Grid>
@@ -48,6 +55,14 @@ export default function Todolist() {
           </Grid>
         )}
       </div>
+    );
+  };
+  
+  return (
+    <>
+      <TodoInput/>
+      <hr/>
+      <InputList/>
     </>
   );
 
