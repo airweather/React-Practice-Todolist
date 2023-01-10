@@ -1,6 +1,19 @@
 import {Button, Grid, Typography, FormControl, TextField} from '@mui/material';
 import {useState} from 'react';
 
+const getDate = () => {
+  const date = new Date();
+  const today = {
+    year : date.getFullYear(),
+    month : date.getMonth(),
+    date : date.getDate(),
+    day : date.getDay(),
+    hour : date.getHours(),
+    min : date.getMinutes(),
+    sec : date.getSeconds(),
+  }
+  return today;
+}
 
 export default function Todolist() {
   const [todos, setTodos] = useState([]);
@@ -11,7 +24,6 @@ export default function Todolist() {
   const complete = (props) => {
     const num = props;
     const newTodos = [];
-
     const complete = window.confirm('완료했나요?');
 
     if(complete) {
@@ -22,20 +34,19 @@ export default function Todolist() {
       })
     }
     setTodos(newTodos);
-    
   };
   
   const push = () => {
     if(text ==='') return;
-    setTodos([...todos, {id, text}])
+    const today = getDate();
+    setTodos([...todos, {id, text, date:today}])
     id++;
+    console.log(todos);
   };
 
   const textInput = (e) => {
     text = e.target.value;
   };
-
-  console.log('todos: ', todos, 'text: ', text);
   
   const TodoInput = () => {
     return (
@@ -57,7 +68,6 @@ export default function Todolist() {
     )
   }
 
-  let num;
   const InputList = () => {
     return (
       <div>

@@ -1,7 +1,8 @@
 import './App.css';
 import Todolist from './component/Todolist';
 import Container from '@mui/material/Container';
-import Todoinput from './component/Todoinput';
+import Calendar from './component/Calendar';
+// import Todoinput from './component/Todoinput';s
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         Todo-List with MUI
         <Todolist/>
       </div>
+      <Calendar/>
     </Container>
   );
 }
