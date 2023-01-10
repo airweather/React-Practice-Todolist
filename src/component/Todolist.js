@@ -1,22 +1,53 @@
-import {Button, Grid, Typography } from '@mui/material';
+import {Button, Grid, Typography, FormControl, TextField} from '@mui/material';
+import {useState} from 'react';
 
-function complete() {
-  alert('완료했나요?');
-};
 
 export default function Todolist() {
+  const [todos, setTodos] = useState([]);
+  const [text, setText] = useState('');
+
+  const complete = () => {
+    alert('완료했나요?');
+  };
+  
+  const push = () => {
+    setTodos([...todos, text])
+  };
+  
+  const textInput = (e) => {
+    setText(e.target.value);
+  };
+  
   return (
     <>
-    <div>
       <Grid container sx={{m:3}}>
         <Grid item xs>
-          <Typography variant="h5" component="h5" sx={{m:1}}>할일1</Typography>
+          <FormControl sx={{ width: '50ch'}}>
+            <TextField 
+              autoFocus
+              id="outlined-basic" 
+              label="해야할 일을 입력하세요" 
+              variant="outlined"
+              onChange={textInput} />
+          </FormControl>
         </Grid>
         <Grid item>
-          <Button variant="contained" sx={{m:1 ,mr:5}} color="success" onClick={complete}>완료</Button>
+          <Button variant="contained" sx={{m:1 ,mr:5}} onClick={push}>입력</Button>
         </Grid>
       </Grid>
-    </div>
+      <hr/>
+      <div>
+        {todos.map((todo) => 
+          <Grid container sx={{m:3}}>
+            <Grid item xs>
+              <Typography variant="h5" component="h5" sx={{m:1}}>{todo}</Typography>
+            </Grid>
+            <Grid item>
+              <Button variant="contained" sx={{m:1 ,mr:5}} color="success" onClick={complete}>완료</Button>
+            </Grid>
+          </Grid>
+        )}
+      </div>
     </>
   );
 

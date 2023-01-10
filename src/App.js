@@ -8,7 +8,6 @@ function App() {
     <Container component="main" maxWidth="sm">
       <div className="App">
         Todo-List with MUI
-        <Todoinput/>
         <Todolist/>
       </div>
     </Container>
