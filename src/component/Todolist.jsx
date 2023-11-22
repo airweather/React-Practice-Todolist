@@ -17,6 +17,7 @@ const getDate = () => {
 
 export default function Todolist() {
   const [todos, setTodos] = useState([]);
+  
 
   let text = '';
   let id = todos.length;
@@ -41,7 +42,7 @@ export default function Todolist() {
     const today = getDate();
     setTodos([...todos, {id, text, date:today}])
     id++;
-    console.log(todos);
+   
   };
 
   const textInput = (e) => {
@@ -74,7 +75,10 @@ export default function Todolist() {
         {todos.map((todo) => 
           <Grid container sx={{m:3}} key={todo.id}>
             <Grid item xs>
-              <Typography variant="h5" component="h5" sx={{m:1}}>{todo.text}</Typography>
+              <Typography variant="h5" component="h5" sx={{m:1}}>
+                {todo.text}
+              </Typography>
+              
             </Grid>
             <Grid item>
               <Button variant="contained" sx={{m:1 ,mr:5}} color="success" onClick={()=>complete(todo.id)}>완료</Button>

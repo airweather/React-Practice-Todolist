@@ -32,6 +32,7 @@ const Calender = () => {
       />
     </LocalizationProvider>
    <p>{today}</p>
+   <button>이동</button>
   </>
   );
 };
