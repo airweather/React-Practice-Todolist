@@ -1,5 +1,6 @@
 // import {Button, Grid, Typography, FormControl, TextField} from '@mui/material';
 import {useState} from 'react';
+import styles from './Todolist.module.css';
 
 const getDate = () => {
   const date = new Date();
@@ -71,7 +72,7 @@ export default function Todolist() {
 
   const TodoInput = () => {
     return (
-      <div style={{display:"flex"}}>
+      <div className={styles.todo}>
         <div>
             <input onChange={textInput} />
         </div>
@@ -106,7 +107,7 @@ export default function Todolist() {
     return (
       <div>
         {todos.map((todo) => 
-          <div key={todo.id} style={{display:"flex"}}>
+          <div key={todo.id} className={styles.todo}>
             <div>
               {todo.text}
             </div>
@@ -118,7 +119,7 @@ export default function Todolist() {
       </div>
     );
   };
-  
+
   return (
     <>
       <TodoInput/>
