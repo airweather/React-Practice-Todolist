@@ -1,4 +1,4 @@
-import {Button, Grid, Typography, FormControl, TextField} from '@mui/material';
+// import {Button, Grid, Typography, FormControl, TextField} from '@mui/material';
 import {useState} from 'react';
 
 const getDate = () => {
@@ -49,41 +49,71 @@ export default function Todolist() {
     text = e.target.value;
   };
   
+  // const TodoInput = () => {
+  //   return (
+  //     <Grid container sx={{m:3}}>
+  //       <Grid item xs>
+  //         <FormControl sx={{ width: '50ch'}}>
+  //           <TextField 
+  //             autoFocus
+  //             id="outlined-basic" 
+  //             label="해야할 일을 입력하세요" 
+  //             variant="outlined"
+  //             onChange={textInput} />
+  //         </FormControl>
+  //       </Grid>
+  //       <Grid item>
+  //         <Button variant="contained" sx={{m:1 ,mr:5}} onClick={push}>입력</Button>
+  //       </Grid>
+  //     </Grid>
+  //   )
+  // }
+
   const TodoInput = () => {
     return (
-      <Grid container sx={{m:3}}>
-        <Grid item xs>
-          <FormControl sx={{ width: '50ch'}}>
-            <TextField 
-              autoFocus
-              id="outlined-basic" 
-              label="해야할 일을 입력하세요" 
-              variant="outlined"
-              onChange={textInput} />
-          </FormControl>
-        </Grid>
-        <Grid item>
-          <Button variant="contained" sx={{m:1 ,mr:5}} onClick={push}>입력</Button>
-        </Grid>
-      </Grid>
+      <div style={{display:"flex"}}>
+        <div>
+            <input onChange={textInput} />
+        </div>
+        <div>
+          <button onClick={push}>입력</button>
+        </div>
+      </div>
     )
   }
+
+  // const InputList = () => {
+  //   return (
+  //     <div>
+  //       {todos.map((todo) => 
+  //         <Grid container sx={{m:3}} key={todo.id}>
+  //           <Grid item xs>
+  //             <Typography variant="h5" component="h5" sx={{m:1}}>
+  //               {todo.text}
+  //             </Typography>
+              
+  //           </Grid>
+  //           <Grid item>
+  //             <Button variant="contained" sx={{m:1 ,mr:5}} color="success" onClick={()=>complete(todo.id)}>완료</Button>
+  //           </Grid>
+  //         </Grid>
+  //       )}
+  //     </div>
+  //   );
+  // };
 
   const InputList = () => {
     return (
       <div>
         {todos.map((todo) => 
-          <Grid container sx={{m:3}} key={todo.id}>
-            <Grid item xs>
-              <Typography variant="h5" component="h5" sx={{m:1}}>
-                {todo.text}
-              </Typography>
-              
-            </Grid>
-            <Grid item>
-              <Button variant="contained" sx={{m:1 ,mr:5}} color="success" onClick={()=>complete(todo.id)}>완료</Button>
-            </Grid>
-          </Grid>
+          <div key={todo.id} style={{display:"flex"}}>
+            <div>
+              {todo.text}
+            </div>
+            <div>
+              <button onClick={()=>complete(todo.id)}>완료</button>
+            </div>
+          </div>
         )}
       </div>
     );
