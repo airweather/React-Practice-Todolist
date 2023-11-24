@@ -1,4 +1,3 @@
-// import {Button, Grid, Typography, FormControl, TextField} from '@mui/material';
 import {useState} from 'react';
 import styles from './Todolist.module.css';
 
@@ -50,29 +49,9 @@ export default function Todolist() {
     text = e.target.value;
   };
   
-  // const TodoInput = () => {
-  //   return (
-  //     <Grid container sx={{m:3}}>
-  //       <Grid item xs>
-  //         <FormControl sx={{ width: '50ch'}}>
-  //           <TextField 
-  //             autoFocus
-  //             id="outlined-basic" 
-  //             label="해야할 일을 입력하세요" 
-  //             variant="outlined"
-  //             onChange={textInput} />
-  //         </FormControl>
-  //       </Grid>
-  //       <Grid item>
-  //         <Button variant="contained" sx={{m:1 ,mr:5}} onClick={push}>입력</Button>
-  //       </Grid>
-  //     </Grid>
-  //   )
-  // }
-
   const TodoInput = () => {
     return (
-      <div className={styles.todo}>
+      <div className={styles.container}>
         <div>
             <input onChange={textInput} />
         </div>
@@ -83,31 +62,11 @@ export default function Todolist() {
     )
   }
 
-  // const InputList = () => {
-  //   return (
-  //     <div>
-  //       {todos.map((todo) => 
-  //         <Grid container sx={{m:3}} key={todo.id}>
-  //           <Grid item xs>
-  //             <Typography variant="h5" component="h5" sx={{m:1}}>
-  //               {todo.text}
-  //             </Typography>
-              
-  //           </Grid>
-  //           <Grid item>
-  //             <Button variant="contained" sx={{m:1 ,mr:5}} color="success" onClick={()=>complete(todo.id)}>완료</Button>
-  //           </Grid>
-  //         </Grid>
-  //       )}
-  //     </div>
-  //   );
-  // };
-
   const InputList = () => {
     return (
       <div>
         {todos.map((todo) => 
-          <div key={todo.id} className={styles.todo}>
+          <div key={todo.id} className={styles.container}>
             <div>
               {todo.text}
             </div>
