@@ -7,10 +7,6 @@ import Calendar from './component/Calendar';
 function App() {
   return (
     <>
-      <div className="App">
-        Todo-List with MUI
-        <Todolist/>
-      </div>
       <Calendar/>
     </>
   );

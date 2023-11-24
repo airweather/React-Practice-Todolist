@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import dayjs from 'dayjs';
+import Todolist from './Todolist';
 
 const isWeekend = (date) => {
   const day = date.day();
@@ -13,11 +14,11 @@ const Calender = () => {
   const today = value.$y +'.'+(value.$M+1)+'.'+value.$D
   
   return (
-  <>
-    
-   <p>{today}</p>
-   <button>이동</button>
-  </>
+    <>
+    <Todolist date={today}/>
+    <p>{today}</p>
+    <button>이동</button>
+    </>
   );
 };
 

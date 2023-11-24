@@ -1,23 +1,10 @@
 import {useState} from 'react';
 import styles from './Todolist.module.css';
 
-const getDate = () => {
-  const date = new Date();
-  const today = {
-    year : date.getFullYear(),
-    month : date.getMonth(),
-    date : date.getDate(),
-    day : date.getDay(),
-    hour : date.getHours(),
-    min : date.getMinutes(),
-    sec : date.getSeconds(),
-  }
-  return today;
-}
+export default function Todolist(props) {
+  const {date} = props;
 
-export default function Todolist() {
   const [todos, setTodos] = useState([]);
-  
 
   let text = '';
   let id = todos.length;
@@ -39,10 +26,8 @@ export default function Todolist() {
   
   const push = () => {
     if(text ==='') return;
-    const today = getDate();
-    setTodos([...todos, {id, text, date:today}])
+    setTodos([...todos, {id, text, date}])
     id++;
-   
   };
 
   const textInput = (e) => {
