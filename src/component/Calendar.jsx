@@ -12,13 +12,26 @@ const isWeekend = (date) => {
 const Calender = () => {
   // const [value, setValue] = useState(dayjs());
   // const today = value.$y +'.'+(value.$M+1)+'.'+value.$D
+  const [month, setMonth] = useState();
+  const today = new Date();
 
-  
-  
+  const setCalendar = (date) => {
+    
+    const arr = Array.from({length: 42}, (_, i)=>
+      {
+        return i
+      }
+    );
+
+    console.log(arr)
+  }
+
+  setCalendar(today)
+
   return (
     <>
       <Todolist date={today}/>
-      <p>{today}</p>
+      <div>{today.getTime()}</div>
       <button>이동</button>
     </>
   );
