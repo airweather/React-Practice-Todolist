@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 // import dayjs from 'dayjs';
 import Todolist from './Todolist';
 
@@ -12,27 +12,49 @@ const isWeekend = (date) => {
 const Calender = () => {
   // const [value, setValue] = useState(dayjs());
   // const today = value.$y +'.'+(value.$M+1)+'.'+value.$D
-  const [month, setMonth] = useState();
   const today = new Date();
 
+  const [month, setMonth] = useState();
+  const [date, setDate] = useState(today);
+
   const setCalendar = (date) => {
+
+    const firstDate = new Date(date.getFullYear(), date.getMonth()+1, 1).getDay();
+    const lastDate = new Date(date.getFullYear(), date.getMonth()+1, 0).getDate();
+
+    console.log(lastDate)
     
     const arr = Array.from({length: 42}, (_, i)=>
       {
-        return i
+        const day = i - firstDate;
+
+        if(day > 0 && day <= lastDate) {
+          return {date:day}
+        }
+        else{
+          return {}
+        }
       }
     );
-
-    console.log(arr)
+    setMonth(arr);
   }
 
-  setCalendar(today)
+  useEffect(() => {
+    setCalendar(date);
+  }, [])
 
   return (
     <>
       <Todolist date={today}/>
       <div>{today.getTime()}</div>
-      <button>이동</button>
+      {month && month.map((item, index) => {
+          return (
+            <div key={index}>
+              {item.date}
+            </div>
+          )
+        })
+      }
     </>
   );
 };
