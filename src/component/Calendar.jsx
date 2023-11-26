@@ -47,14 +47,16 @@ const Calender = () => {
     <>
       <Todolist date={today}/>
       <div>{today.getTime()}</div>
-      {month && month.map((item, index) => {
-          return (
-            <div key={index}>
-              {item.date}
-            </div>
-          )
-        })
-      }
+      <div className='calendar-container'>
+        {month && month.map((item, index) => {
+            return (
+              <div className="calendar" key={index}>
+                {item.date}
+              </div>
+            )
+          })
+        }
+      </div>
     </>
   );
 };
