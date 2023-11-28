@@ -20,17 +20,17 @@ const Calender = () => {
 
   const setCalendar = (date) => {
 
-    const firstDate = new Date(date.getFullYear(), date.getMonth()+1, 1).getDay();
+    const firstDate = new Date(date.getFullYear(), date.getMonth()+1, 1);
     const lastDate = new Date(date.getFullYear(), date.getMonth()+1, 0).getDate();
 
-    console.log(lastDate)
-    
     const arr = Array.from({length: 42}, (_, i)=>
       {
-        const day = i - firstDate;
+        const day = i - firstDate.getDate();
+
+        const data = new Date(date.getFullYear(), date.getMonth(), day)
 
         if(day > 0 && day <= lastDate) {
-          return {date:day}
+          return {date:data.getDate()}
         }
         else{
           return {}
