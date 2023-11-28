@@ -48,10 +48,10 @@ const Calender = () => {
     <>
       <Todolist date={today}/>
       <div>{today.getTime()}</div>
-      <div className='calendar-container'>
+      <div className={styles.container}>
         {month && month.map((item, index) => {
             return (
-              <div className="calendar" key={index}>
+              <div className={styles.calendar} key={index}>
                 {item.date}
               </div>
             )
