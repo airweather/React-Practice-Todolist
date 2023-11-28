@@ -47,7 +47,7 @@ const Calender = () => {
   return (
     <>
       <Todolist date={today}/>
-      <div>{today.getTime()}</div>
+      <div>{today.getFullYear()}. {today.getMonth()+1}</div>
       <div className={styles.container}>
         {month && month.map((item, index) => {
             return (
