@@ -27,10 +27,12 @@ const Calender = () => {
       {
         const day = i - firstDate.getDate();
 
-        const data = new Date(date.getFullYear(), date.getMonth(), day)
+        const data = new Date(date.getFullYear(), date.getMonth(), day);
 
         if(day > 0 && day <= lastDate) {
-          return {date:data.getDate()}
+          return {date:data,
+            todo:[0, 0, 0]
+          }
         }
         else{
           return {}
@@ -38,6 +40,13 @@ const Calender = () => {
       }
     );
     setMonth(arr);
+  }
+
+  const getDateInfo = (data) => {
+    if(data) {
+      return new Date(data).getDate();
+    }
+    return ;
   }
 
   useEffect(() => {
@@ -51,9 +60,11 @@ const Calender = () => {
       <div className={styles.container}>
         {month && month.map((item, index) => {
             return (
-              <div className={styles.calendar} key={index}>
-                {item.date}
-              </div>
+              <>
+                <div className={styles.calendar} key={index}>
+                  {getDateInfo(item.date)}
+                </div>
+              </>
             )
           })
         }
