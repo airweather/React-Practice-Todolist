@@ -31,7 +31,7 @@ const Calender = () => {
 
         if(day > 0 && day <= lastDate) {
           return {date:data,
-            todo:[0, 0, 0]
+            todo:["a", "b", "c"]
           }
         }
         else{
@@ -49,6 +49,21 @@ const Calender = () => {
     return ;
   }
 
+  const getTodoList = (data) => {
+
+    const arr = Array.from({length: 4}, (_, i)=> {
+
+      if(data[i]) {
+        return <div>{data[i]}</div>;
+      }
+      return <div></div>;
+    }
+
+   )
+    console.log(arr);
+   return arr;
+  }
+
   useEffect(() => {
     setCalendar(date);
   }, [])
@@ -60,11 +75,12 @@ const Calender = () => {
       <div className={styles.container}>
         {month && month.map((item, index) => {
             return (
-              <>
+              <div style={{display:"flex", flexDirection:"column", border:"1px solid black"}}>
                 <div className={styles.calendar} key={index}>
                   {getDateInfo(item.date)}
                 </div>
-              </>
+                  {<div>{item.todo && getTodoList(item.todo)}</div>}
+              </div>
             )
           })
         }
