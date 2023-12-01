@@ -31,7 +31,7 @@ const Calender = () => {
 
         if(day > 0 && day <= lastDate) {
           return {date:data,
-            todo:["a", "b", "c"]
+            todo:["a", "b", "c","d","e","f"]
           }
         }
         else{
@@ -71,6 +71,7 @@ const Calender = () => {
   return (
     <>
       <Todolist date={today}/>
+
       <div>{today.getFullYear()}. {today.getMonth()+1}</div>
       <div className={styles.container}>
         {month && month.map((item, index) => {
