@@ -75,7 +75,7 @@ const Calender = () => {
       <div className={styles.container}>
         {month && month.map((item, index) => {
             return (
-              <div style={{display:"flex", flexDirection:"column", border:"1px solid black"}}>
+              <div className={styles.calendar}>
                 <div className={styles.calendar} key={index}>
                   {getDateInfo(item.date)}
                 </div>
