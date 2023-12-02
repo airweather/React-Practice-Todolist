@@ -19,6 +19,23 @@ const Calender = () => {
   const [date, setDate] = useState(today);
   const [todoList, setTodoList] = useState({});
 
+  const setTodoListDate = (date) => {
+    const firstDate = new Date(date.getFullYear(), date.getMonth()+1, 1);
+    const lastDate = new Date(date.getFullYear(), date.getMonth()+1, 0).getDate();
+
+    const todoListObj = {};
+
+    for(let i = 0; i < lastDate; i++) {
+      const data = new Date(date.getFullYear(), date.getMonth(), i);
+      todoListObj[i] = data;
+      todoListObj[i].todolist = [];
+    }
+
+    console.log(todoListObj)
+  }
+
+  setTodoListDate(today)
+
   const setCalendar = (date) => {
 
     const firstDate = new Date(date.getFullYear(), date.getMonth()+1, 1);
@@ -61,7 +78,7 @@ const Calender = () => {
     }
 
    )
-    console.log(arr);
+    // console.log(arr);
    return arr;
   }
 
@@ -71,7 +88,7 @@ const Calender = () => {
 
   return (
     <>
-      <Todolist date={today}/>
+      <Todolist date={today} todoList={todoList}/>
 
       <div>{today.getFullYear()}. {today.getMonth()+1}</div>
       <div className={styles.container}>
