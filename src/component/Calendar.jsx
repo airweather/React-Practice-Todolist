@@ -82,17 +82,13 @@ const Calender = () => {
    return arr;
   }
 
-  const setTodoListData = () => {
-    
-  }
-
   useEffect(() => {
     setCalendar(date);
   }, [])
 
   return (
     <>
-      <Todolist date={today} todoList={todoList} setTodoListData={setTodoListData}/>
+      <Todolist date={today} todoList={todoList}/>
 
       <div>{today.getFullYear()}. {today.getMonth()+1}</div>
       <div className={styles.container}>
