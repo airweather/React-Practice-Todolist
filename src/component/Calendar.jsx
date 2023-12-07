@@ -82,9 +82,9 @@ const Calender = () => {
    return arr;
   }
 
-  const zeroTime = (date) => {
-    return new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
-  }
+  // const zeroTime = (date) => {
+  //   return new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
+  // }
 
   useEffect(() => {
     setCalendar(date);
@@ -92,7 +92,7 @@ const Calender = () => {
 
   return (
     <>
-      <Todolist date={zeroTime(today)} todoList={todoList}/>
+      {/* <Todolist date={zeroTime(today)} todoList={todoList}/> */}
 
       <div>{today.getFullYear()}. {today.getMonth()+1}</div>
       <div className={styles.container}>
