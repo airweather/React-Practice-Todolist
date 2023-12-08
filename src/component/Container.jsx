@@ -6,6 +6,7 @@ const Container = () => {
   const today = new Date();
 
   const [todoList, setTodoList] = useState({});
+  const [targetDate, setTargetDate] = useState(today);
 
   const zeroTime = (date) => {
     return new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
@@ -16,8 +17,8 @@ const Container = () => {
       <h1>
         Container
       </h1>
-      <Calendar />
-      <Todolist date={zeroTime(today)} todoList={todoList}/>
+      <Calendar targetDate={targetDate}/>
+      <Todolist date={zeroTime(targetDate)} todoList={todoList}/>
       </>
   )
 }
