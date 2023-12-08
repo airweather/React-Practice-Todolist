@@ -18,7 +18,8 @@ const Container = () => {
       <h1>
         Container
       </h1>
-      <Calendar targetDate={targetDate}/>
+      <div>{dateNormalization(selectedDate).getFullYear()} {dateNormalization(selectedDate).getMonth()+1} {dateNormalization(selectedDate).getDate()}</div>
+      <Calendar targetDate={targetDate} setSelectedDate={setSelectedDate}/>
       <Todolist date={dateNormalization(selectedDate)} todoList={todoList}/>
       </>
   )

@@ -8,7 +8,9 @@ const isWeekend = (date) => {
 };
 
 
-const Calender = () => {
+const Calender = (props) => {
+  const {setSelectedDate} = props;
+
   const today = new Date();
 
   const [month, setMonth] = useState();
@@ -45,7 +47,8 @@ const Calender = () => {
 
         if(day > 0 && day <= lastDate) {
           return {date:data,
-            todo:["a", "b", "c","d","e","f"]
+            // todo:["a", "b", "c","d","e","f"]
+            todo:[]
           }
         }
         else{
@@ -77,6 +80,10 @@ const Calender = () => {
    return arr;
   }
 
+  const datePick = (date) => {
+    setSelectedDate(date)
+  }
+
   useEffect(() => {
     setCalendar(date);
   }, [])
@@ -88,7 +95,7 @@ const Calender = () => {
         {month && month.map((item, index) => {
             return (
               <div className={styles.calendar}>
-                <div className={styles.calendar} key={index}>
+                <div className={styles.calendar} key={index} onClick={()=>datePick(item.date)} style={{cursor:"pointer"}}>
                   {getDateInfo(item.date)}
                 </div>
                   {<div>{item.todo && getTodoList(item.todo)}</div>}
