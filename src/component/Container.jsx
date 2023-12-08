@@ -7,8 +7,9 @@ const Container = () => {
 
   const [todoList, setTodoList] = useState({});
   const [targetDate, setTargetDate] = useState(today);
+  const [selectedDate, setSelectedDate] = useState(today);
 
-  const zeroTime = (date) => {
+  const dateNormalization = (date) => {
     return new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
   }
 
@@ -18,7 +19,7 @@ const Container = () => {
         Container
       </h1>
       <Calendar targetDate={targetDate}/>
-      <Todolist date={zeroTime(targetDate)} todoList={todoList}/>
+      <Todolist date={dateNormalization(selectedDate)} todoList={todoList}/>
       </>
   )
 }
