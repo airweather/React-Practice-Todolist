@@ -1,6 +1,4 @@
 import {useEffect, useState} from 'react';
-// import dayjs from 'dayjs';
-import Todolist from './Todolist';
 import styles from './Calendar.module.css';
 
 const isWeekend = (date) => {
@@ -11,8 +9,6 @@ const isWeekend = (date) => {
 
 
 const Calender = () => {
-  // const [value, setValue] = useState(dayjs());
-  // const today = value.$y +'.'+(value.$M+1)+'.'+value.$D
   const today = new Date();
 
   const [month, setMonth] = useState();
@@ -78,13 +74,8 @@ const Calender = () => {
     }
 
    )
-    // console.log(arr);
    return arr;
   }
-
-  // const zeroTime = (date) => {
-  //   return new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
-  // }
 
   useEffect(() => {
     setCalendar(date);
@@ -92,8 +83,6 @@ const Calender = () => {
 
   return (
     <>
-      {/* <Todolist date={zeroTime(today)} todoList={todoList}/> */}
-
       <div>{today.getFullYear()}. {today.getMonth()+1}</div>
       <div className={styles.container}>
         {month && month.map((item, index) => {
