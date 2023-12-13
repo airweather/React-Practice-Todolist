@@ -2,7 +2,7 @@ import {useState} from 'react';
 import styles from './Todolist.module.css';
 
 export default function Todolist(props) {
-  const {date, todoList} = props;
+  const {date, todoLists} = props;
 
   const [todos, setTodos] = useState([]);
 
@@ -30,7 +30,7 @@ export default function Todolist(props) {
     const todo = [...todos, {id, text, date}]
 
     console.log(todo);
-    console.log('todo list : ',todoList);
+    console.log('todo list : ',todoLists);
 
     setTodos(todo);
 

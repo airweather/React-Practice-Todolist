@@ -5,7 +5,7 @@ import {useState} from 'react';
 const Container = () => {
   const today = new Date();
 
-  const [todoList, setTodoList] = useState({});
+  const [todoLists, setTodoLists] = useState({});
   const [targetDate, setTargetDate] = useState(today);
   const [selectedDate, setSelectedDate] = useState(today);
 
@@ -19,8 +19,8 @@ const Container = () => {
         Container
       </h1>
       <div>{dateNormalization(selectedDate).getFullYear()} {dateNormalization(selectedDate).getMonth()+1} {dateNormalization(selectedDate).getDate()}</div>
-      <Calendar targetDate={targetDate} setSelectedDate={setSelectedDate}/>
-      <Todolist date={dateNormalization(selectedDate)} todoList={todoList}/>
+      <Calendar targetDate={targetDate} setSelectedDate={setSelectedDate} todoLists={todoLists}/>
+      <Todolist date={dateNormalization(selectedDate)} todoLists={todoLists}/>
       </>
   )
 }
