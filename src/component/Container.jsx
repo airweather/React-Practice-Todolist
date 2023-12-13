@@ -20,7 +20,7 @@ const Container = () => {
       </h1>
       <div>{dateNormalization(selectedDate).getFullYear()} {dateNormalization(selectedDate).getMonth()+1} {dateNormalization(selectedDate).getDate()}</div>
       <Calendar targetDate={targetDate} setSelectedDate={setSelectedDate} todoLists={todoLists}/>
-      <Todolist date={dateNormalization(selectedDate)} todoLists={todoLists}/>
+      <Todolist date={dateNormalization(selectedDate)} todoLists={todoLists} setTodoLists={setTodoLists}/>
       </>
   )
 }

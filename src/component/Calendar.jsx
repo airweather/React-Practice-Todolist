@@ -17,22 +17,22 @@ const Calender = (props) => {
   const [date, setDate] = useState(today);
   const [todoList, setTodoList] = useState({});
 
-  const setTodoListDate = (date) => {
-    const firstDate = new Date(date.getFullYear(), date.getMonth()+1, 1);
-    const lastDate = new Date(date.getFullYear(), date.getMonth()+1, 0).getDate();
+  // const setTodoListDate = (date) => {
+  //   const firstDate = new Date(date.getFullYear(), date.getMonth()+1, 1);
+  //   const lastDate = new Date(date.getFullYear(), date.getMonth()+1, 0).getDate();
 
-    const todoListObj = {};
+  //   const todoListObj = {};
 
-    for(let i = 0; i < lastDate; i++) {
-      const data = new Date(date.getFullYear(), date.getMonth(), i);
-      todoListObj[i] = data;
-      todoListObj[i].todolist = [];
-    }
+  //   for(let i = 0; i < lastDate; i++) {
+  //     const data = new Date(date.getFullYear(), date.getMonth(), i);
+  //     todoListObj[i] = data;
+  //     todoListObj[i].todolist = [];
+  //   }
 
-    console.log(todoListObj)
-  }
+  //   console.log(todoListObj)
+  // }
 
-  setTodoListDate(today)
+  // setTodoListDate(today)
 
   const setCalendar = (date) => {
 
