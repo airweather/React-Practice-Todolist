@@ -1,6 +1,6 @@
 import Calendar from './Calendar';
 import Todolist from './Todolist';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 const Container = () => {
   const today = new Date();
@@ -20,7 +20,7 @@ const Container = () => {
     const todoListData = [];
 
     for(let i = 1; i <= lastDate; i++) {
-      const todoDate = new Date(date.getFullYear(), date.getMonth(), i);
+      const todoDate = dateNormalization(new Date(date.getFullYear(), date.getMonth(), i));
 
       todoListData.push(
         {
@@ -33,6 +33,11 @@ const Container = () => {
     return todoListData;
   
   }
+
+  useEffect(() => {
+    setTodoLists(monthlyTodoList(dateNormalization(selectedDate)));
+  },[])
+   
 
 
   return (
