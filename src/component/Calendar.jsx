@@ -103,7 +103,7 @@ const Calender = (props) => {
         }
         {month && month.map((item, index) => {
             return (
-              <div className={styles.calendar}>
+              <div className={styles.calendar} key={index}>
                 <div className={styles.calendar} key={index} onClick={()=>datePick(item.date)} style={{cursor:"pointer"}}>
                   {getDateInfo(item.date)}
                 </div>
