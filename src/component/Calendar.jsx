@@ -33,11 +33,13 @@ const Calender = (props) => {
   // }
 
   // setTodoListDate(today)
+  const calendarHeader = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   const setCalendar = (date) => {
 
     const firstDate = new Date(date.getFullYear(), date.getMonth()+1, 1);
     const lastDate = new Date(date.getFullYear(), date.getMonth()+1, 0).getDate();
+
 
     const arr = Array.from({length: 42}, (_, i)=>
       {
@@ -92,6 +94,13 @@ const Calender = (props) => {
     <>
       <div>{today.getFullYear()}. {today.getMonth()+1}</div>
       <div className={styles.container}>
+        {
+          calendarHeader.map((item, index) => {
+            return (
+              <div className={styles.calendar} key={index}>{item}</div>
+            )
+            })
+        }
         {month && month.map((item, index) => {
             return (
               <div className={styles.calendar}>
